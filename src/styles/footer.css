@@ -1,0 +1,15 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 10em;
+        a {
+            text-decoration: none;
+        }
+    }
+}
