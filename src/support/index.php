@@ -6,8 +6,8 @@ ini_set('display_errors', 1);
 
 // Constanten (connectie-instellingen databank)
 define('DB_HOST', 'localhost');
-define('DB_USER', 'ayoub');
-define('DB_PASS', 'v5G5#re54');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_NAME', 'labo05');
 
 date_default_timezone_set('Europe/Brussels');
