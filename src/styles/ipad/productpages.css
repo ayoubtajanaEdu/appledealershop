@@ -1,0 +1,61 @@
+*, *::before, *::after {    
+   box-sizing: border-box;
+}
+
+:root {
+   font-family: 'Sofia Sans Condensed', sans-serif, serif;
+   scroll-behavior: smooth;
+   line-height: 1.6;
+}
+
+body {
+   margin: 0;
+}
+
+
+.iphone-selection {
+   text-align: center;
+   background-color: #fff;
+   padding: 2rem;
+   border-radius: 10px;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+   margin-bottom: 2rem;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 1.5rem;
+}
+
+.iphone-option {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   cursor: pointer;
+}
+
+.iphone-option img {
+   width: 150px;
+   height: auto;
+   border-radius: 10px;
+   object-fit: cover;
+}
+
+.add-to-cart-button {
+   background-color: #007aff;
+   color: white;
+   padding: 0.8rem 1.5rem;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+   background-color: #005bb5;
+}
