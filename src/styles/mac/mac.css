@@ -1,4 +1,3 @@
-:root {
-    font-family: 'Sofia Sans Condensed', sans-serif;
-    scroll-behavior: smooth;
+.macbook-pro-img {
+    max-height: 20rem;
 }
