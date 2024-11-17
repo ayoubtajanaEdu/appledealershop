@@ -2,14 +2,21 @@ footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+    width: 100%;
     ul {
         list-style: none;
         display: flex;
-        gap: 10em;
+        gap: 3rem;
         a {
             text-decoration: none;
+        }
+    }
+}
+@media (max-width:20rem) {
+    footer {
+        ul {
+            gap: 1rem;
         }
     }
 }

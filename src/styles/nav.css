@@ -1,11 +1,15 @@
 nav {
     background-color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     align-items: center;
     padding: 0.9em;
-    gap: 1rem;
     font-size: 1.3em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
     ul {
         display: flex;
         justify-content: flex-end;
@@ -25,4 +29,7 @@ nav {
         width: auto;
         height: 4rem;
     }
+}
+main {
+    margin-top: 7rem;
 }

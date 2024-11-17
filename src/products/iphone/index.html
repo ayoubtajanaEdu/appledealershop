@@ -15,8 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../styles/iphone/iphone.css">
     <link rel="stylesheet" href="../../styles/footer.css">
-    <!--JS Links-->
-    <script src="./scripts/navbar.js"></script>
+
     <!-- Title -->
     <title>iPhone - Apple Dealer Belgium</title>
 </head>
@@ -63,13 +62,97 @@
             </ul>
         </nav>
     </header>
-    <main></main>
+        <main>
+            <!-- Automatic Slideshow with Cards -->
+            <div class="slideshow-container">
+                <!-- Slide 1 -->
+                <div class="slide fade">
+                    <img src="./images/iphone-15-model-unselect-gallery-1-202309.webp" alt="Slide 1" class="slide-image">
+                    <div class="slide-content">
+                        <h2>iPhone 15</h2>
+                        <p>Discover the latest iPhone with advanced features.</p>
+                        <a href="./models/15/" class="slide-button">Learn More</a>
+                    </div>
+                </div>
+        
+                <!-- Slide 2 -->
+                <div class="slide fade">
+                    <img src="./images/iphone-16-model-unselect-gallery-1-202409.webp" alt="Slide 2" class="slide-image">
+                    <div class="slide-content">
+                        <h2>iPhone 16</h2>
+                        <p>Powerful and versatile for all your needs.</p>
+                        <a href="./models/16/" class="slide-button">Discover more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <img src="./images/hero_chip_endframe__e48wzm1ey9ua_xsmall.jpg" alt="A18 CPU in the iPhone 16">
+                    <h1>
+                        A18 chip.
+                        Super fast. Super slim.
+                    </h1>
+                    <p>
+                        Introducing A18, a specially selected chip that is two generations ahead of the A16 Bionic chip of iPhone 15. It enables next-level camera features such as Photographic Styles and the camera controller. The chip is extremely efficient, so the battery does not last longer.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <img src="./images/esos_hero__fdj0sg8t7cuy_small.jpg" alt="A18 CPU in the iPhone 16">
+                    <h1>
+                        In case of emergency, iPhone comes to your rescue.
+                    </h1>
+                    <p>
+                        iPhone has safety features that can save lives. If you don't have a mobile network or WiFi and you can't call 911, you can use your iPhone to send emergency services text messages via satellite.
+                    </p>
+                    <a href="https://support.apple.com/en-us/guide/iphone/iph2968440de/ios">
+                        This is how SOS emergency notification via satellite works
+                    </a>
+                    <p> 
+                        Using hardware sensors and advanced motion algorithms, Accident Detection can detect a serious accident. Your iPhone will then alert your contacts in the event of an emergency and also call emergency services, even if you are out of range.
+                    </p>
+                    <a href="https://support.apple.com/en-us/104959">
+                        This is how Accident Detection works
+                    </a>
+                </div>
+
+                <div class="card">
+                    <img src="./images/hero_camera__bsixees3ujte_xsmall.jpg" alt="A18 CPU in the iPhone 16">
+                    <h1>
+                        New camera system.
+                        By far the best images.
+                    </h1>
+                    <p>
+                        Whether you are close to your subject or far away, you can take the most beautiful photos with the versatile new camera system of iPhone 16. With the 48-MP Fusion camera you can not only take impressive photos in high resolution, but you can also zoom in far thanks to the 2x optical quality telephoto lens. The ultra-wide-angle camera is ideal for extreme close-ups and macro photos, as well as wide panoramic images. So it's like having four lenses in your pocket.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Glowing Text and Slider Section -->
+            <div class="highlight-section">
+            <h1 class="glow-text">Why don't buy it</h1>
+            <div class="iphone-slider">
+                <!-- iPhone 15 -->
+                <a href="./models/15/" class="iphone-link">
+                    <img src="./images/iphone-15-model-unselect-gallery-1-202309.webp" alt="iPhone 15" class="iphone-image">
+                </a>
+                <h2>iPhone 15</h2>
+                <!-- iPhone 16 -->
+                <a href="./models/16/" class="iphone-link">
+                    <img src="./images/iphone-16-model-unselect-gallery-1-202409.webp" alt="iPhone 16" class="iphone-image">
+                </a>
+                <h2>iPhone 16</h2>
+            </div>
+            </div>
+
+        </main>
+        <script src="../../scripts/slideshow.js"></script>
     <footer>
         <section>
             <ul>
-                <li>
-                    <a href="../../about/">About us</a>
                 </li>
+                    <a href="../../about/">About us</a>
                 <li>
                     <a href="../../privacy_policy/">Privacy Policy</a>
                 </li>
