@@ -20,9 +20,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/nav.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/">
+    <link rel="stylesheet" href="../styles/footer.css">
     <title>Login - Apple Dealer Belgium</title>
     <!-- Inline CSS for simplicity -->
     <style>
@@ -32,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-sizing: border-box;
             font-family: 'Sofia Sans Condensed', sans-serif;
         }
+
         body {
             display: flex;
             justify-content: center;
@@ -39,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             height: 100vh;
             background-color: #f5f5f5;
         }
+
         .form-container {
             background-color: white;
             padding: 2rem;
@@ -50,21 +60,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             flex-direction: column;
             gap: 1rem;
         }
+
         h2 {
             text-align: center;
             margin-bottom: 1rem;
             color: #007aff;
         }
+
         label {
             font-weight: bold;
             margin-bottom: 0.5rem;
         }
+
         input {
             padding: 0.8rem;
             border-radius: 5px;
             border: 1px solid #ddd;
             margin-bottom: 1rem;
         }
+
         button {
             background-color: #007aff;
             color: white;
@@ -74,26 +88,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         button:hover {
             background-color: #005bb5;
         }
+
         .error {
             color: red;
             text-align: center;
             margin-top: 1rem;
         }
+
         p {
             text-align: center;
         }
+
         a {
             color: #007aff;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <!-- Login Form -->
     <div class="form-container">
@@ -106,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
             <button type="submit">Log In</button>
-            
+
             <!-- Display error if login fails -->
             <?php if ($error): ?>
                 <p class="error"><?php echo $error; ?></p>
@@ -116,4 +136,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
     </div>
 </body>
+
 </html>
