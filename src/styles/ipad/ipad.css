@@ -32,6 +32,27 @@ body {
     overflow: hidden;
 }
 
+.slideshow-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+    padding-inline: 2rem;
+    text-align: center;
+
+    & p {
+        max-width: 40rem;
+        font-size: 1.2rem;
+        padding-block-end: 2rem;
+    }
+
+    & h1 {
+        font-size: 2.5rem;
+    }
+}
+
+
 /* Individual Slide */
 .slide {
     display: none;
@@ -100,7 +121,7 @@ body {
 /* Button Styling */
 .slide-button {
     display: inline-block;
-    background-color: #007aff;
+    background-color: #004896;
     color: white;
     padding: 0.5em 1em;
     text-decoration: none;
@@ -110,7 +131,7 @@ body {
 }
 
 .slide-button:hover {
-    background-color: #005bb5;
+    background-color: #0058b1;
 }
 
 /* Fade Animation */
@@ -179,6 +200,11 @@ body {
     max-width: 11rem;
 }
 
+.ipad-mini-img-small {
+    max-width: 100px;
+}
+
 .ipad-text {
     padding-block-end: 2rem;
 }
+
