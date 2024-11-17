@@ -21,8 +21,8 @@ try {
     exit;
 }
 
-$mail = isset($_POST['mail']) ? (string)$_POST['mail'] : '';
-$message = isset($_POST['message']) ? (string)$_POST['message'] : '';
+$mail = isset($_POST['mail']) ? (string) $_POST['mail'] : '';
+$message = isset($_POST['message']) ? (string) $_POST['message'] : '';
 $msgName = '';
 $msgMessage = '';
 
@@ -64,19 +64,22 @@ if (isset($_POST['btnSubmit'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!--Meta-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Apple advisor,advisor, advising">
-    
+
     <!--Favicon Links-->
     <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
-    
+
     <!--CSS Links-->
     <link rel="stylesheet" href="../styles/nav.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../styles/support/support.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <!--JS Links-->
@@ -84,59 +87,61 @@ if (isset($_POST['btnSubmit'])) {
     <!-- Title -->
     <title>Template - Apple Dealer Belgium</title>
 </head>
+
 <body>
     <header>
-    <nav>
-        <a href="../">
-          <img src="../images/logo.png" alt="Apple Dealer Belgium Logo" />
-        </a>
-        <ul>
-          <li>
-            <a href="./products/iphone/"> iPhone </a>
-          </li>
-          <li>
-            <a href="./products/ipad/"> iPad </a>
-          </li>
-          <li>
-            <a href="./products/mac/"> Mac </a>
-          </li>
-        </ul>
-
-        <ul>
-          <li>
-            <a href="./login/login.php"> Log in </a>
-          </li>
-          <li>
-            <a href="./login/signup.php"> Register </a>
-          </li>
-          <li>
-            <a href="./cart/index.php">
-              <img src="./images/cart.png" alt="cart" />
+        <nav>
+            <a href="../">
+                <img src="../images/logo.png" alt="Apple Dealer Belgium Logo" />
             </a>
-          </li>
-        </ul>
-      </nav>
+            <ul>
+                <li>
+                    <a href="./products/iphone/"> iPhone </a>
+                </li>
+                <li>
+                    <a href="./products/ipad/"> iPad </a>
+                </li>
+                <li>
+                    <a href="./products/mac/"> Mac </a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="./login/login.php"> Log in </a>
+                </li>
+                <li>
+                    <a href="./login/signup.php"> Register </a>
+                </li>
+                <li>
+                    <a href="./cart/index.php">
+                        <img src="./images/cart.png" alt="cart" />
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
         <div class="login-box">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <img src="./img/e-corp.png" alt="E-Corp logo">
-            <h1>Send a message</h1>
-            <p class="message">All fields needs to be filled.</p>
-    
-            <div>
-                <label for="mail" class="maillabel">E-mail</label>
-                <input type="email" id="mail" name="mail" value="<?php echo $mail; ?>" class="input-text"/>
-                <span class="message error"><?php echo $msgName; ?></span>
-            </div>
-    
-            <div>
-                <label for="msg">Message</label>
-                <textarea name="message" id="message" rows="5" cols="40" class="msg"><?php echo $message; ?></textarea>
-                <span class="message error"><?php echo $msgMessage; ?></span>
-            </div>
-    
-            <input type="submit" id="btnSubmit" name="btnSubmit" value="Submit"/>
+                <img src="./img/e-corp.png" alt="E-Corp logo">
+                <h1>Send a message</h1>
+                <p class="message">All fields needs to be filled.</p>
+
+                <div>
+                    <label for="mail" class="maillabel">E-mail</label>
+                    <input type="email" id="mail" name="mail" value="<?php echo $mail; ?>" class="input-text" />
+                    <span class="message error"><?php echo $msgName; ?></span>
+                </div>
+
+                <div>
+                    <label for="msg">Message</label>
+                    <textarea name="message" id="message" rows="5" cols="40"
+                        class="msg"><?php echo $message; ?></textarea>
+                    <span class="message error"><?php echo $msgMessage; ?></span>
+                </div>
+
+                <input type="submit" id="btnSubmit" name="btnSubmit" value="Submit" />
             </form>
         </div>
     </main>
@@ -159,4 +164,5 @@ if (isset($_POST['btnSubmit'])) {
         </section>
     </footer>
 </body>
+
 </html>
