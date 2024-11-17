@@ -1,10 +1,13 @@
 <?php
 session_start();
 
+// Include the connection file
+require_once '../databases/connection.php';
+
 // Check if the user is already logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
     // If already logged in, redirect to the cart page
-    header("Location: ../cart/cart.php");
+    header("Location: ../cart/index.php");
     exit;
 }
 
@@ -14,16 +17,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Replace this with your actual database validation
-    if ($email === 'user@example.com' && $password === 'password') {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['email'] = $email; // Store user email in the session
-        header("Location: ../cart/index.php");
-        exit;
+    // Prepare and execute a query to check if the email exists in the database
+    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    // If email exists
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $hashedPassword);
+        $stmt->fetch();
+
+        // Verify the password
+        if (password_verify($password, $hashedPassword)) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $email; // Store user email in the session
+            header("Location: ../cart/index.php");
+            exit;
+        } else {
+            $error = "Invalid password.";
+        }
     } else {
-        $error = "Invalid email or password.";
+        $error = "No user found with that email.";
     }
+
+    $stmt->close();
 }
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>

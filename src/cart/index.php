@@ -16,11 +16,13 @@ require '../databases/connection.php';
 $userEmail = $_SESSION['email'];
 $cartItems = [];
 
+// Prepare and execute a query to fetch the cart items from the database
 $stmt = $conn->prepare("SELECT * FROM cart WHERE user_email = ?");
 $stmt->bind_param("s", $userEmail);
 $stmt->execute();
 $result = $stmt->get_result();
 
+// Fetch all cart items
 while ($row = $result->fetch_assoc()) {
     $cartItems[] = $row;
 }
