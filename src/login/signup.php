@@ -25,9 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <title>Register - Apple Dealer Belgium</title>
     <style>
         body {
             display: flex;
@@ -76,6 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-decoration: none;
         }
     </style>
+    <link rel="stylesheet" href="../styles/footer.css">
+    <title>Register - Apple Dealer Belgium</title>
 </head>
 
 <body>

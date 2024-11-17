@@ -2,3 +2,12 @@
     font-family: 'Sofia Sans Condensed', sans-serif;
     scroll-behavior: smooth;
 }
+main {
+    margin-top: 10rem;
+}
+section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
