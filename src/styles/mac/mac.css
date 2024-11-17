@@ -1,3 +1,11 @@
-.macbook-pro-img {
-    max-height: 20rem;
+.strong {
+    font-size: 3rem;
 }
+
+.cards {
+    
+    & img {
+        max-width: 25rem;
+    }
+}
+
