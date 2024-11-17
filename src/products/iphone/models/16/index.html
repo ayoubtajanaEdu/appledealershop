@@ -37,18 +37,39 @@
                 </ul>
         </nav>
     </header>
-    <main></main>
+    <main>
+        <div class="iphone-selection">
+            <h1>Select Your iPhone</h1>
+            <form action="../../../../cart/index.php" method="POST">
+                <!-- iPhone 15 -->
+                <label class="iphone-option">
+                    <input type="radio" name="iphone_model" value="iPhone 15" required>
+                    <img src="../../images/iphone-16-model-unselect-gallery-1-202409.webp" alt="iPhone 15">
+                    <span>iPhone 16</span>
+                </label>
+    
+                <!-- iPhone 15 Pro -->
+                <label class="iphone-option">
+                    <input type="radio" name="iphone_model" value="iPhone 15 Pro">
+                    <img src="../../images/iphone-16-pro-model-unselect-gallery-1-202409.webp" alt="iPhone 15 Plus">
+                    <span>iPhone 16 Plus</span>
+                </label>
+    
+                <!-- Add to Cart Button -->
+                <button type="submit" class="add-to-cart-button">Add to Cart</button>
+            </form>
+    </main>
     <footer>
         <section>
             <ul>
                 <li>
-                    <a href="">About us</a>
+                    <a href="../../../../about/">About us</a>
                 </li>
                 <li>
-                    <a href="">Privacy Policy</a>
+                    <a href="../../../../privacy_policy/">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="">Support Page</a>
+                    <a href="../../../../support/">Support Page</a>
                 </li>
             </ul>
         </section>
