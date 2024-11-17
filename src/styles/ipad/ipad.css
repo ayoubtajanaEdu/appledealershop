@@ -132,24 +132,26 @@ body {
 }
 .cards {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 2rem;
     list-style-type: none;
     padding-inline-end: 2.5rem;
     padding-block-end: 5rem;
-
+    
+    
     & li {
     padding: 2rem;
     text-align: center;
     border-radius: 1.5rem;
     position: relative;
+    max-width: 20rem;
 
     & img {
-        border-radius: 0.5rem;
+        max-width: 100%;
+        height: auto;
     }
 }
 }
