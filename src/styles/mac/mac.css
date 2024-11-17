@@ -3,8 +3,8 @@
 }
 
 .cards {
-    
-    & img {
+
+    .img-mac {
         max-width: 25rem;
     }
 }
