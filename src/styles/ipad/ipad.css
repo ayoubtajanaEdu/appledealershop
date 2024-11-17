@@ -154,7 +154,31 @@ body {
 
     & img {
         width: 100%;
-        height: auto;
+        
     }
 }
+}
+
+.ipad-pro-img-small {
+    max-width: 60px;
+}
+.ipad-pro-img-ultra-small {
+    max-width: 40px;
+}
+
+.ipad-pro-img-ultra-small-camera {
+    max-width: 40px;
+    border-radius: 0.6rem;
+}
+
+.ipad-pro-img-pen {
+    max-width: 30px;
+}
+
+.img-ipad-gg {
+    max-width: 11rem;
+}
+
+.ipad-text {
+    padding-block-end: 2rem;
 }
