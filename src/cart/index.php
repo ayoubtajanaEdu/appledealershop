@@ -9,99 +9,40 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     exit;
 }
 
-// Assuming you have a database connection (update the connection details as needed)
-require '../databases/connection.php';
+// Check if a product is selected
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['iphone_model'])) {
+    // Assuming you have a database connection (update the connection details as needed)
+    require '../databases/connection.php';
 
-// Fetch cart items for the logged-in user
-$userEmail = $_SESSION['email'];
-$cartItems = [];
+    $userEmail = $_SESSION['email'];
+    $iphoneModel = $_POST['iphone_model']; // The selected iPhone model
 
-// Prepare and execute a query to fetch the cart items from the database
-$stmt = $conn->prepare("SELECT * FROM cart WHERE user_email = ?");
-$stmt->bind_param("s", $userEmail);
-$stmt->execute();
-$result = $stmt->get_result();
+    // Check if the item already exists in the cart
+    $stmt = $conn->prepare("SELECT * FROM cart WHERE user_email = ? AND product_name = ?");
+    $stmt->bind_param("ss", $userEmail, $iphoneModel);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-// Fetch all cart items
-while ($row = $result->fetch_assoc()) {
-    $cartItems[] = $row;
+    if ($result->num_rows > 0) {
+        // If the product is already in the cart, update the quantity
+        $row = $result->fetch_assoc();
+        $newQuantity = $row['quantity'] + 1;
+
+        $updateStmt = $conn->prepare("UPDATE cart SET quantity = ? WHERE user_email = ? AND product_name = ?");
+        $updateStmt->bind_param("iss", $newQuantity, $userEmail, $iphoneModel);
+        $updateStmt->execute();
+        $updateStmt->close();
+    } else {
+        // Otherwise, add the new product to the cart
+        $insertStmt = $conn->prepare("INSERT INTO cart (user_email, product_name, quantity, price) VALUES (?, ?, ?, ?)");
+        // Add a price for the selected model, this would normally come from the database as well
+        $price = 999; // Example price, replace with actual price logic
+        $insertStmt->bind_param("ssii", $userEmail, $iphoneModel, 1, $price);
+        $insertStmt->execute();
+        $insertStmt->close();
+    }
+
+    $stmt->close();
+    $conn->close();
 }
-
-$stmt->close();
-$conn->close();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Cart - Apple Dealer Belgium</title>
-    <link rel="stylesheet" href="../styles/nav.css">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <style>
-        body {
-            font-family: 'Fredoka', sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            margin: 0;
-            padding: 2rem;
-        }
-
-        .cart-container {
-            margin-top: 2rem;
-        }
-
-        .cart-item {
-            background-color: #333;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-        }
-
-        .cart-item h3 {
-            margin: 0;
-        }
-
-        .cart-item p {
-            margin: 0.5rem 0;
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <nav>
-            <a href="../">
-                <img src="../images/logo.png" alt="Apple Dealer Belgium Logo">
-            </a>
-            <ul>
-                <li><a href="../products/iphone/">iPhone</a></li>
-                <li><a href="../products/ipad/">iPad</a></li>
-                <li><a href="../products/mac/">Mac</a></li>
-            </ul>
-            <ul>
-                <li><a href="../login/login.php">Log in</a></li>
-                <li><a href="../login/signup.php">Register</a></li>
-                <li><a href="../cart/cart.php"><img src="../images/cart.png" alt="cart"></a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <div class="cart-container">
-        <h2>Your Cart</h2>
-        <?php if (empty($cartItems)): ?>
-            <p>Your cart is empty. Start shopping now!</p>
-        <?php else: ?>
-            <?php foreach ($cartItems as $item): ?>
-                <div class="cart-item">
-                    <h3><?php echo htmlspecialchars($item['product_name']); ?></h3>
-                    <p>Price: €<?php echo number_format($item['price'], 2); ?></p>
-                    <p>Quantity: <?php echo htmlspecialchars($item['quantity']); ?></p>
-                </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </div>
-</body>
-
-</html>
