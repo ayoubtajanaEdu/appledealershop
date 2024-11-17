@@ -1,16 +1,24 @@
 <?php
 session_start();
 
+// Check if the user is already logged in
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+    // If already logged in, redirect to the cart page
+    header("Location: ../cart/cart.php");
+    exit;
+}
+
 // Placeholder authentication logic
 $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Simple validation logic (replace this with your database authentication)
+    // Replace this with your actual database validation
     if ($email === 'user@example.com' && $password === 'password') {
         $_SESSION['loggedin'] = true;
-        header("Location: ../cart/cart.php"); // Redirect to cart page after successful login
+        $_SESSION['email'] = $email; // Store user email in the session
+        header("Location: ../cart/index.php");
         exit;
     } else {
         $error = "Invalid email or password.";
@@ -20,102 +28,85 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/nav.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles/">
-    <link rel="stylesheet" href="../styles/footer.css">
     <title>Login - Apple Dealer Belgium</title>
-    <!-- Inline CSS for simplicity -->
+    <link rel="stylesheet" href="../styles/nav.css">
+    <link rel="stylesheet" href="../styles/footer.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Sofia Sans Condensed', sans-serif;
-        }
-
         body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f5f5f5;
+            margin: 0;
         }
-
         .form-container {
-            background-color: white;
+            background-color: #333;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
         }
-
-        h2 {
+        .form-container h2 {
             text-align: center;
-            margin-bottom: 1rem;
-            color: #007aff;
         }
-
-        label {
-            font-weight: bold;
+        .form-container label {
+            display: block;
             margin-bottom: 0.5rem;
         }
-
-        input {
-            padding: 0.8rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
+        .form-container input {
+            width: 100%;
+            padding: 0.7rem;
             margin-bottom: 1rem;
-        }
-
-        button {
-            background-color: #007aff;
-            color: white;
+            border-radius: 5px;
             border: none;
-            padding: 1rem;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 0.7rem;
+            background-color: aquamarine;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-
-        button:hover {
-            background-color: #005bb5;
+        .form-container button:hover {
+            background-color: #48c9b0;
         }
-
-        .error {
-            color: red;
+        .form-container .error {
+            color: #ff4d4d;
             text-align: center;
             margin-top: 1rem;
         }
-
-        p {
+        .form-container p {
             text-align: center;
-        }
-
-        a {
-            color: #007aff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
-    <!-- Login Form -->
+    <header>
+        <nav>
+            <a href="../">
+                <img src="../images/logo.png" alt="Apple Dealer Belgium Logo" />
+            </a>
+            <ul>
+                <li><a href="../products/iphone/">iPhone</a></li>
+                <li><a href="../products/ipad/">iPad</a></li>
+                <li><a href="../products/mac/">Mac</a></li>
+            </ul>
+            <ul>
+                <li><a href="../login/login.php">Log in</a></li>
+                <li><a href="../login/signup.php">Register</a></li>
+                <li><a href="../cart/index.php"><img src="../images/cart.png" alt="cart"></a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="form-container">
         <h2>Log In</h2>
         <form method="POST" action="login.php">
@@ -126,15 +117,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" id="password" name="password" placeholder="Enter your password" required>
 
             <button type="submit">Log In</button>
-
-            <!-- Display error if login fails -->
             <?php if ($error): ?>
-                <p class="error"><?php echo $error; ?></p>
+                <p class="error"><?= htmlspecialchars($error) ?></p>
             <?php endif; ?>
-
-            <p>Don't have an account? <a href="register.php">Register here</a>.</p>
         </form>
+        <p>Don't have an account? <a href="register.php">Register here</a>.</p>
     </div>
 </body>
-
 </html>
