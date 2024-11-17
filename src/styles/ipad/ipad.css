@@ -124,6 +124,10 @@ body {
 .cards-text {
     display: flex;
     justify-content: center;
+
+    & h2 {
+        font-size: 2rem;
+    }
     
 }
 
