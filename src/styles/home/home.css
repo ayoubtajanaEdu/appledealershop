@@ -7,11 +7,23 @@ main {
 }
 .banner {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
     margin-bottom: 5rem;
+    a {
+        display: block;
+        flex: 1 1 45%; /* Ensures two items per row */
+    }
     img {
-        height: 100%;
         width: 100%;
+        height: auto;
+        object-fit: cover; 
+    }
+}
+@media (max-width:40rem) {
+    .banner {
+        flex-direction: column;
     }
 }
