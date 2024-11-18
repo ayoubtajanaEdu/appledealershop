@@ -47,6 +47,7 @@ $conn->close();
             margin: 0;
             padding: 2rem 0;
         }
+
         .form-container {
             background-color: #fff;
             padding: 2rem;
@@ -54,12 +55,15 @@ $conn->close();
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             width: 80%;
             max-width: 1200px;
+            margin-top: 10rem;
             margin-bottom: 2rem;
         }
+
         .form-container h2 {
             text-align: center;
             margin-bottom: 1rem;
         }
+
         .cart-item {
             display: flex;
             justify-content: space-between;
@@ -69,16 +73,19 @@ $conn->close();
             border-radius: 8px;
             background-color: #f9f9f9;
         }
+
         .cart-item img {
             width: 100px;
             height: auto;
             margin-right: 1rem;
         }
+
         .cart-item-details {
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         .cart-item button {
             padding: 0.5rem 1rem;
             background-color: #f2b632;
@@ -87,9 +94,11 @@ $conn->close();
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         .cart-item button:hover {
             background-color: #e49a28;
         }
+
         .total-price {
             text-align: center;
             font-size: 1.2rem;
@@ -101,9 +110,11 @@ $conn->close();
             max-width: 400px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .total-price span {
             font-weight: bold;
         }
+
         .checkout-button {
             display: block;
             width: 100%;
@@ -115,6 +126,7 @@ $conn->close();
             transition: background-color 0.3s;
             margin-top: 1rem;
         }
+
         .checkout-button:hover {
             background-color: #48c9b0;
         }
@@ -151,7 +163,7 @@ $conn->close();
             $totalPrice = 0;
             foreach ($items as $item):
                 $totalPrice += $item['price']; // Assume there's a price field in the products table
-            ?>
+                ?>
                 <div class="cart-item">
                     <img src="../images/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
                     <div class="cart-item-details">
