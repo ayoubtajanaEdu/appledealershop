@@ -147,7 +147,7 @@ $conn->close();
             </ul>
             <ul>
                 <li><a href="../login/login.php">Log in</a></li>
-                <li><a href="../login/register.php">Register</a></li>
+                <li><a href="../login/signup.php">Register</a></li>
                 <li><a href="../cart/index.php"><img src="../images/cart.png" alt="cart"></a></li>
             </ul>
         </nav>
@@ -165,7 +165,7 @@ $conn->close();
                 $totalPrice += $item['price']; // Assume there's a price field in the products table
                 ?>
                 <div class="cart-item">
-                    <img src="../images/<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
+                    <img src="../images<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
                     <div class="cart-item-details">
                         <strong><?= htmlspecialchars($item['name']) ?></strong>
                         <p>Price: €<?= number_format($item['price'], 2) ?></p>
