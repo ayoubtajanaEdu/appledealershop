@@ -1,3 +1,23 @@
+<?php
+// Initialize the session and cart
+session_start();
+
+// Check if a MacBook model is selected
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['macbook_model'])) {
+    $selectedMacBook = $_POST['macbook_model'];
+
+    // Store the selected model in the session (cart)
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+    $_SESSION['cart'][] = $selectedMacBook;
+
+    // Redirect to the cart page after adding to cart
+    header("Location: ../../../../cart/index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,18 +25,18 @@
    <!--Meta-->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Apple advisor,advisor, advising">
+   <meta name="description" content="Apple advisor, advising, buy MacBook Pro">
 
    <!--Favicon Links-->
    <link rel="shortcut icon" href="../../../../images/logo.png" type="image/x-icon">
 
    <!--CSS Links-->
    <link rel="stylesheet" href="../../../../styles/nav.css">
-   <link rel="stylesheet" href="../../../../styles/ipad/productpages.css">
+   <link rel="stylesheet" href="../../../../styles/mac/productpages.css">
    <link rel="stylesheet" href="../../../../styles/footer.css">
 
    <!-- Title -->
-   <title>Template - Apple Dealer Belgium</title>
+   <title>Buy MacBook Pro - Apple Dealer Belgium</title>
 </head>
 
 <body>
@@ -40,38 +60,34 @@
       </nav>
    </header>
    <main>
-      <div class="iphone-selection">
-         <h1>Select Your iPad</h1>
-         <form action="../../../../cart/index.php" method="POST">
-            <!-- MacBook pro 14inch-->
-            <label class="iphone-option">
-               <input type="radio" name="iphone_model" value="iPhone 15" required>
-               <img src="../../images/MacBook-pro-14inch.jpg" alt="MacBook picture">
-               <span>MacBook pro 14inch</span>
+      <div class="macbook-selection">
+         <h1>Select Your MacBook Pro</h1>
+         <form action="" method="POST">
+            <!-- MacBook Pro 14 inch -->
+            <label class="macbook-option">
+               <input type="radio" name="macbook_model" value="MacBook Pro 14 inch" required>
+               <img src="../../images/MacBook-pro-14inch.jpg" alt="MacBook Pro 14 inch">
+               <span>MacBook Pro 14 inch</span>
             </label>
-            <!-- MacBook pro 16inch-->
-            <label class="iphone-option">
-               <input type="radio" name="iphone_model" value="iPhone 15" required>
-               <img src="../../images/MacBook-pro-16inch.png" alt="MacBook picture">
-               <span>MacBook pro 16inch</span>
+    
+            <!-- MacBook Pro 16 inch -->
+            <label class="macbook-option">
+               <input type="radio" name="macbook_model" value="MacBook Pro 16 inch" required>
+               <img src="../../images/MacBook-pro-16inch.png" alt="MacBook Pro 16 inch">
+               <span>MacBook Pro 16 inch</span>
             </label>
 
             <!-- Add to Cart Button -->
             <button type="submit" class="add-to-cart-button">Add to Cart</button>
          </form>
+      </div>
    </main>
    <footer>
       <div>
          <ul>
-            <li>
-               <a href="../../../../about/">About us</a>
-            </li>
-            <li>
-               <a href="../../../../privacy_policy/">Privacy Policy</a>
-            </li>
-            <li>
-               <a href="../../../../support/">Support Page</a>
-            </li>
+            <li><a href="../../../../about/">About us</a></li>
+            <li><a href="../../../../privacy_policy/">Privacy Policy</a></li>
+            <li><a href="../../../../support/">Support Page</a></li>
          </ul>
       </div>
       <div>
