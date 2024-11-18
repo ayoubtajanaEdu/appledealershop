@@ -96,26 +96,26 @@ if (isset($_POST['btnSubmit'])) {
             </a>
             <ul>
                 <li>
-                    <a href="./products/iphone/"> iPhone </a>
+                    <a href="../products/iphone/"> iPhone </a>
                 </li>
                 <li>
-                    <a href="./products/ipad/"> iPad </a>
+                    <a href="../products/ipad/"> iPad </a>
                 </li>
                 <li>
-                    <a href="./products/mac/"> Mac </a>
+                    <a href="../products/mac/"> Mac </a>
                 </li>
             </ul>
 
             <ul>
                 <li>
-                    <a href="./login/login.php"> Log in </a>
+                    <a href="../login/login.php"> Log in </a>
                 </li>
                 <li>
-                    <a href="./login/signup.php"> Register </a>
+                    <a href="../login/signup.php"> Register </a>
                 </li>
                 <li>
-                    <a href="./cart/index.php">
-                        <img src="./images/cart.png" alt="cart" />
+                    <a href="../cart/index.php">
+                        <img src="../images/cart.png" alt="cart" />
                     </a>
                 </li>
             </ul>
@@ -124,7 +124,6 @@ if (isset($_POST['btnSubmit'])) {
     <main>
         <div class="login-box">
             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <img src="./img/e-corp.png" alt="E-Corp logo">
                 <h1>Send a message</h1>
                 <p class="message">All fields needs to be filled.</p>
 
